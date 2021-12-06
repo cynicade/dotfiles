@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+case $BLOCK_BUTTON in
+    4) pactl set-sink-volume @DEFAULT_SINK@ +10% ;;
+    5) pactl set-sink-volume @DEFAULT_SINK@ -10% ;;
+esac
+
+pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | xargs
