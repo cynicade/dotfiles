@@ -85,4 +85,7 @@ return require('packer').startup(function()
     event = 'BufReadPre',
     config = [[require('config.gitsigns')]]
   }
+  use {'mhartington/formatter.nvim', config = [[require('config.formatter')]]}
+  use {'ray-x/go.nvim', config = [[require('config.go')]]}
+  use 'nvim-telescope/telescope-file-browser.nvim'
 end)

@@ -14,7 +14,7 @@ options = {
   sections = {
     lualine_a = {'mode'},
     lualine_b = {{'branch', icon = ''}, 'diff',
-                  {'diagnostics', sources={'nvim_lsp'}}},
+                  {'diagnostics', sources={'nvim_diagnostic'}}},
     lualine_c = {'filename'},
     lualine_x = {'fileformat', 'filetype'},
     lualine_y = {'progress'},

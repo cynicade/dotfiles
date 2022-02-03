@@ -161,6 +161,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 # assign clients to workspaces
 assign [class="discord"] $ws4
+assign [class="Telegram"] $ws4
 for_window [class="Spotify"] move to workspace $ws5
 
 # float windows

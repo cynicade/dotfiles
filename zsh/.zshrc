@@ -8,6 +8,9 @@ fi
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.yarn/bin:$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.dotnet/tools:$PATH
 
+export GOPATH="/home/cyn/Dev/go/packages"
+export PATH=$PATH:$GOPATH/bin
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/cyn/.oh-my-zsh"
 
