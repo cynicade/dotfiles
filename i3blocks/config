@@ -24,14 +24,6 @@ command=$SCRIPT_DIR/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
-# Memory usage
-#
-# The type defaults to "mem" if the instance is not specified.
-[memory/memory]
-label= 
-separator=true
-interval=10
-
 # Disk usage
 #
 # The directory defaults to $HOME if the instance is not specified.
@@ -41,6 +33,14 @@ interval=10
 label= 
 #DIR=/mnt/data
 interval=30
+
+# Memory usage
+#
+# The type defaults to "mem" if the instance is not specified.
+[memory/memory]
+label= 
+separator=true
+interval=10
 
 # CPU usage
 #
@@ -60,9 +60,9 @@ label=⚡
 interval=60
 
 # Updates
-[arch-update/arch-update]
-label= 
-interval=21600
+# [arch-update/arch-update]
+# label= 
+# interval=21600
 
 # Generic media player support
 #

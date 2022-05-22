@@ -2,12 +2,14 @@ local lualine = require 'lualine'
 
 lualine.setup {
 options = {
+    theme = 'material',
+    -- theme = require('material.lualine'),
     icons_enabled = true,
-    theme = 'tokyonight',
     -- component_separators = { left = '', right = ''},
     component_separators = { left = '', right = ''},
     -- section_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
+    -- section_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
     disabled_filetypes = {},
     always_divide_middle = true,
   },

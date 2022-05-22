@@ -52,13 +52,14 @@ bindsym $mod+Shift+Return exec kitty -1 -e tmux
 bindsym $mod+r exec "kitty -1 --class ranger -e ranger"
 
 # screenshot
-bindsym Print exec flameshot gui
+# bindsym Print exec flameshot gui
 
 # kill focused window
 bindsym Ctrl+q kill
 
 # rofi
-bindsym $mod+d exec "$HOME/.config/rofi/bin/launcher_colorful"
+bindsym $mod+d exec "rofi -show drun"
+# bindsym $mod+d exec 'rofi -color-window "argb:b31a1b26, argb:b31a1b26, argb:b31a1b26" -color-normal "#1a1b26, #c0caf5, #1a1b26, #bb9af7, #414868" -color-active "#1a1b26, #bb9af7, #1a1b26, #7aa2f7, #fdf6e3" -color-urgent "#fdf6e3, #dc322f, #eee8d5, #dc322f, #fdf6e3" -modi window,run,ssh,drun -show drun -icon-theme "Numix Circle" -show-icons'
 # bindsym $mod+p exec "$HOME/Dev/Scripts/project_browser/project_browser.sh"
 
 # change focus
@@ -168,6 +169,7 @@ for_window [class="Spotify"] move to workspace $ws5
 for_window [class="Blueman-manager"] floating enable
 for_window [class="ranger"] floating enable
 for_window [class="Nitrogen"] floating enable
+for_window [class="Steam"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -180,8 +182,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 for_window [class=".*"] border pixel 2
 smart_borders on
 gaps inner 10
-gaps outer 10
-smart_gaps on
+# gaps outer 10
+gaps top 42
+# smart_gaps on
 
 set $focused #bb9af7
 set $bg #1a1b26
@@ -199,23 +202,23 @@ client.background       $bg
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    position top
-    strip_workspace_numbers yes
-    status_command SCRIPT_DIR=~/.config/i3blocks i3blocks
-    tray_output primary
-    colors {
-        background $bg
-        statusline $fg
-        separator #666666
+# bar {
+#     position top
+#     strip_workspace_numbers yes
+#     status_command SCRIPT_DIR=~/.config/i3blocks i3blocks
+#     tray_output primary
+#     colors {
+#         background $bg
+#         statusline $fg
+#         separator #666666
 
-#                           border      background      text
-        focused_workspace   $focused    $focused        $bg
-        active_workspace    $bg         $bg             $focused
-        inactive_workspace  $bg         $bg             $focused
-        urgent_workspace    $urg        $urg            $bg
-    }
-}
+# #                           border      background      text
+#         focused_workspace   $focused    $focused        $bg
+#         active_workspace    $bg         $bg             $focused
+#         inactive_workspace  $bg         $bg             $focused
+#         urgent_workspace    $urg        $urg            $bg
+#     }
+# }
 
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id /home/cyn/Dev/Scripts/monitors.sh
@@ -224,3 +227,4 @@ exec_always --no-startup-id "picom --experimental-backend"
 exec_always --no-startup-id "dunst"
 exec_always --no-startup-id "setxkbmap -option ctrl:nocaps"
 exec_always --no-startup-id "xmodmap -e 'keycode 37 = grave asciitilde'"
+exec_always --no-startup-id /home/cyn/.config/polybar/launch.sh

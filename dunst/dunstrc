@@ -327,15 +327,15 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#1a1b26"
-    foreground = "#c0caf5"
+    background = "#010103"
+    foreground = "#eeffff"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#1a1b26"
-    foreground = "#c0caf5"
+    background = "#010104"
+    foreground = "#eeffff"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
@@ -415,14 +415,6 @@
 #[fullscreen_show_critical]
 #    msg_urgency = critical
 #    fullscreen = show
-
-[Eris]
-    summary     = "*LadyNihila*"
-    urgency     = normal
-    format      = "<b>Eris 🖤</b>\n%b"
-    frame_color = "#6727a3"
-    background  = "#6727a3"
-    foreground  = "#ffffff"
 
 #[espeak]
 #    summary = "*"

@@ -74,7 +74,6 @@ return require('packer').startup(function()
     config = [[require('config.cmp')]],
     event = 'InsertEnter *',
   }
-  use {'hoob3rt/lualine.nvim', config = [[require('config.lualine')]]}
   use {'ygm2/rooter.nvim', config = [[require('config.rooter')]]}
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons', config = [[require('config.bufferline')]]}
   use 'tpope/vim-eunuch'
@@ -88,4 +87,12 @@ return require('packer').startup(function()
   use {'mhartington/formatter.nvim', config = [[require('config.formatter')]]}
   use {'ray-x/go.nvim', config = [[require('config.go')]]}
   use 'nvim-telescope/telescope-file-browser.nvim'
+  -- use {
+  --   'kaicataldo/material.vim',
+  --   branch = 'main',
+  --   config = [[require('config.material')]]
+  -- }
+  use {'marko-cerovac/material.nvim', config = [[require('config.material')]]}
+  use {'hoob3rt/lualine.nvim', config = [[require('config.lualine')]]}
+  use {'s1n7ax/nvim-terminal', config = [[require('config.terminal')]]}
 end)

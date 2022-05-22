@@ -64,6 +64,8 @@ cmd [[
     autocmd FileType typescriptreact setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
     autocmd FileType css setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
     autocmd FileType haskell map <buffer> <leader>br :w<CR>:terminal ghci<CR>
+    autocmd FileType nusmv setlocal shiftwidth=2 softtabstop=2
+    autocmd FileType go setlocal shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
 ]]
 ------------------------------------------------------------------------------
 -- Keymaps
@@ -76,3 +78,10 @@ require('maps')
 ------------------------------------------------------------------------------
 
 require('plugins')
+
+------------------------------------------------------------------------------
+-- Hack kek
+------------------------------------------------------------------------------
+cmd [[
+  let g:material_style = "palenight"
+]]
