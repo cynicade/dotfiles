@@ -140,3 +140,8 @@ eval "$(thefuck --alias)"
 
 # Starship
 eval "$(starship init zsh)"
+
+# ssh
+# eval $(ssh-agent)
+# ssh-add ~/.ssh/server
+# [ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"

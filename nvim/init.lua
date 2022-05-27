@@ -13,7 +13,6 @@
 ------------------------------------------------------------------------------
 local set = vim.opt
 local cmd = vim.cmd
-local g = vim.g
 
 set.backup = false
 set.clipboard = "unnamedplus"

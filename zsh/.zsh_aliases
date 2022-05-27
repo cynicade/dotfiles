@@ -16,8 +16,7 @@ alias orphans="sudo pacman -Rs \$(pacman -Qqtd)"
 alias space="sudo du -h --max-depth=1"
 alias serv="ssh cyn@65.21.145.72"
 alias servftp="sftp -P 22 cyn@65.21.145.72"
-alias tabberftp="sftp -P 22 tabber@65.21.145.72"
-alias nusmv="$HOME/Downloads/NuSMV-2.6.0-Linux/bin/NuSMV"
 cds() {
     cd `s $1`
 }
+alias muxi="tmuxinator"

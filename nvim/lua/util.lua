@@ -1,6 +1,6 @@
 local function map(key)
   -- get the extra options
-  local opts = {noremap = true}
+  local opts = { noremap = true }
   for i, v in pairs(key) do
     if type(i) == 'string' then opts[i] = v end
   end
@@ -32,4 +32,18 @@ local function eslint_config_exists()
   return false
 end
 
-return { map=map, eslint_config_exists=eslint_config_exists }
+local function switchBufNoTerm(dir)
+  if dir == "next" then
+    vim.cmd [[bnext]]
+    if string.match(vim.fn.bufname(), "zsh") then
+      vim.cmd [[bnext]]
+    end
+  else
+    vim.cmd [[bprev]]
+    if string.match(vim.fn.bufname(), "zsh") then
+      vim.cmd [[bprev]]
+    end
+  end
+end
+
+return { map = map, eslint_config_exists = eslint_config_exists, switchBufNoTerm = switchBufNoTerm }

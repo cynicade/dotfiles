@@ -170,6 +170,7 @@ for_window [class="Blueman-manager"] floating enable
 for_window [class="ranger"] floating enable
 for_window [class="Nitrogen"] floating enable
 for_window [class="Steam"] floating enable
+for_window [class="VirtualBox Machine"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
