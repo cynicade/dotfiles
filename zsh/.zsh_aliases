@@ -7,6 +7,7 @@ alias ei="nvim ~/.config/i3/config"
 alias ep="nvim ~/.config/polybar/config.ini"
 alias ev="nvim ~/.config/nvim/init.lua"
 alias et="nvim ~/.tmux.conf"
+alias fpac="yay -Slq | fzf --multi --preview 'yay -Si {1}' | xargs -ro yay -S"
 alias pac="yay -S"
 alias pac-s="yay -Ss"
 alias pac-u="yay -Syyu"
@@ -16,7 +17,16 @@ alias orphans="sudo pacman -Rs \$(pacman -Qqtd)"
 alias space="sudo du -h --max-depth=1"
 alias serv="ssh cyn@65.21.145.72"
 alias servftp="sftp -P 22 cyn@65.21.145.72"
+# alias ls="logo-ls -D"
+# alias la="logo-ls -AD"
+# alias ll="logo-ls -alD"
+alias ls="ls --color --group-directories-first"
+alias la="ls -a --color --group-directories-first"
+alias ll="ls -al --color --group-directories-first"
 cds() {
     cd `s $1`
 }
 alias muxi="tmuxinator"
+pp() {
+    tmuxinator start `ls $HOME/.config/tmuxinator | sed -e 's/\.yml//g' | fzf`
+}

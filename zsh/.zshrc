@@ -10,6 +10,7 @@ export PATH=$HOME/.yarn/bin:$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.dot
 
 export GOPATH="/home/cyn/Dev/go/packages"
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/Dev/systemgo
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/cyn/.oh-my-zsh"
@@ -97,7 +98,7 @@ export LANG=en_US.UTF-8
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-vi-mode zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -145,3 +146,4 @@ eval "$(starship init zsh)"
 # eval $(ssh-agent)
 # ssh-add ~/.ssh/server
 # [ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk

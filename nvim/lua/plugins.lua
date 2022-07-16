@@ -54,7 +54,7 @@ return require("packer").startup(function()
       run = "make",
     },
   })
-  use("NLKNguyen/papercolor-theme")
+  -- use("NLKNguyen/papercolor-theme")
   use({
     "neovim/nvim-lspconfig",
     config = [[require('config.lspconfig')]],
@@ -83,7 +83,7 @@ return require("packer").startup(function()
     config = [[require('config.bufferline')]],
   })
   use("tpope/vim-eunuch")
-  use({ "folke/tokyonight.nvim", config = [[require('config.tokyonight')]] })
+  -- use({ "folke/tokyonight.nvim", config = [[require('config.tokyonight')]] })
   use({
     "lewis6991/gitsigns.nvim",
     requires = "nvim-lua/plenary.nvim",
@@ -93,9 +93,10 @@ return require("packer").startup(function()
   -- use { 'mhartington/formatter.nvim', config = [[require('config.formatter')]] }
   use({ "ray-x/go.nvim", config = [[require('config.go')]] })
   use("nvim-telescope/telescope-file-browser.nvim")
-  use({ "marko-cerovac/material.nvim", config = [[require('config.material')]] })
-  use({ "hoob3rt/lualine.nvim", config = [[require('config.lualine')]] })
-  use({ "s1n7ax/nvim-terminal", config = [[require('config.terminal')]] })
+  -- use({ "marko-cerovac/material.nvim", config = [[require('config.material')]] })
+  -- use({ "hoob3rt/lualine.nvim", config = [[require('config.lualine')]] })
+  -- use({ "s1n7ax/nvim-terminal", config = [[require('config.terminal')]] })
+  use { "akinsho/toggleterm.nvim", tag = 'v1.*', config = [[require('config.toggleterm')]] }
   use({
     "kyazdani42/nvim-tree.lua",
     config = [[require('config.nvimtree')]],
@@ -105,4 +106,18 @@ return require("packer").startup(function()
     tag = "nightly", -- optional, updated every week. (see issue #1193)
   })
   use({ "jose-elias-alvarez/null-ls.nvim", config = [[require('config.nullls')]] })
+  use({
+    'ThePrimeagen/harpoon',
+    config = [[require('config.harpoon')]]
+  })
+  use {
+    'rmagatti/auto-session',
+    config = [[require('config.autosession')]]
+  }
+  use {
+    'catppuccin/nvim',
+    as = "catppuccin",
+    config = [[require('config.catppuccin')]]
+  }
+  use { 'feline-nvim/feline.nvim', config = [[require('config.feline')]] }
 end)

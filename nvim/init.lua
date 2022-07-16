@@ -17,6 +17,7 @@ local cmd = vim.cmd
 set.backup = false
 set.clipboard = "unnamedplus"
 set.completeopt = "menu,menuone,noselect"
+set.cursorline = true
 set.errorbells = false
 set.expandtab = true
 set.hidden = true
@@ -33,7 +34,7 @@ set.shiftwidth = 4
 set.shortmess = set.shortmess + 'F'
 set.showcmd = false
 set.showmode = false
--- set.sidescrolloff = 8
+set.sidescrolloff = 2
 set.signcolumn = "yes:2"
 set.smartindent = true
 set.softtabstop = 4
@@ -56,7 +57,8 @@ cmd [[
     autocmd FileType sh map <leader>br :up<CR>:execute 'silent !tmux select-pane -t {last} && tmux send-keys -R Up Enter && tmux select-pane -t {last}'<CR><CR>
     autocmd FileType lua setlocal shiftwidth=2 softtabstop=2
     autocmd FileType cpp setlocal shiftwidth=2 softtabstop=2
-    autocmd FileType cpp map <leader>br :execute 'silent !tmux select-pane -t {last} && tmux send-keys -R Up Enter'<CR>
+    " autocmd FileType cpp map <leader>br :execute 'silent !tmux select-pane -t {last} && tmux send-keys -R Up Enter'<CR>
+    autocmd FileType cpp map <leader>br :execute 'silent !tmux send-keys -t {last} "rm main && make main && ./main" Enter'<CR>
     autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
     autocmd FileType javascriptreact setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
     autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
@@ -65,6 +67,7 @@ cmd [[
     autocmd FileType haskell map <buffer> <leader>br :w<CR>:terminal ghci<CR>
     autocmd FileType nusmv setlocal shiftwidth=2 softtabstop=2
     autocmd FileType go setlocal shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
+    autocmd FileType go map <leader>br :execute 'silent !tmux send-keys -t {last} "go run main.go" Enter'<CR>
 ]]
 ------------------------------------------------------------------------------
 -- Keymaps
@@ -77,10 +80,3 @@ require('maps')
 ------------------------------------------------------------------------------
 
 require('plugins')
-
-------------------------------------------------------------------------------
--- Hack kek
-------------------------------------------------------------------------------
-cmd [[
-  let g:material_style = "palenight"
-]]

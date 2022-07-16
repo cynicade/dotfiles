@@ -22,6 +22,16 @@ local on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
   end
 
+  -- disable clang formatting
+  if client.name == "clangd" then
+    client.resolved_capabilities.document_formatting = false
+  end
+
+  -- disable prisma formatting
+  if client.name == "prismals" then
+    client.resolved_capabilities.document_formatting = false
+  end
+
   -- disable sumneko lua formatting
   -- if client.name == "sumneko_lua" then
   -- 	client.resolved_capabilities.document_formatting = false
@@ -126,15 +136,15 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   buf_set_keymap("n", "L", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
-  buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
+  buf_set_keymap("n", "J", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
   buf_set_keymap("n", "<space>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
   buf_set_keymap("n", "<space>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "pyright", "rust_analyzer", "tsserver", "gopls", "clangd", "sumneko_lua" }
+local servers = { "pyright", "rust_analyzer", "tsserver", "gopls", "clangd", "sumneko_lua", "astro", "tailwindcss",
+  "prismals" }
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup({

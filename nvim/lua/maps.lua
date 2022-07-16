@@ -9,6 +9,9 @@ map { 'n', '<C-j>', ':wincmd j<CR>' }
 map { 'n', '<C-k>', ':wincmd k<CR>' }
 map { 'n', '<C-l>', ':wincmd l<CR>' }
 
+-- close buffer with C-w
+map { 'n', '<C-w>', ':bd<CR>' }
+
 -- jk escape
 map { 'i', 'jk', '<Esc>' }
 
