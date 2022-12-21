@@ -35,29 +35,9 @@ vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 local Terminal = require("toggleterm.terminal").Terminal
 local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
-local rungotest = Terminal:new({ cmd = "grc go test -v ./... & while [ : ]; do sleep 1; done", hidden = true })
-local runjstest = Terminal:new({ cmd = "yarn test & while [ : ]; do sleep 1; done", hidden = true })
-local ranger = Terminal:new({ cmd = "ranger", hidden = true })
 
 function _LAZYGIT_TOGGLE()
   lazygit:toggle()
 end
 
-function _RUN_TEST_TOGGLE()
-  if vim.bo.filetype == "go" then
-    rungotest:toggle()
-  elseif vim.bo.filetype == "javascript" or
-      vim.bo.filetype == "typescript" or
-      vim.bo.filetype == "javascriptreact" or
-      vim.bo.filetype == "typescriptreact" then
-    runjstest:toggle()
-  end
-end
-
-function _RANGER_TOGGLE()
-  ranger:toggle()
-end
-
 vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>lua _RUN_TEST_TOGGLE()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>rr", "<cmd>lua _RANGER_TOGGLE()<CR>", { noremap = true, silent = true })

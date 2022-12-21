@@ -17,7 +17,7 @@ lualine.setup {
     lualine_a = { 'mode' },
     lualine_b = { { 'branch', icon = '' }, 'diff',
       { 'diagnostics', sources = { 'nvim_diagnostic' } } },
-    lualine_c = { require('auto-session-library').current_session_name },
+    lualine_c = { 'filename' },
     lualine_x = { 'fileformat', 'filetype' },
     lualine_y = { 'progress' },
     lualine_z = { 'location' }

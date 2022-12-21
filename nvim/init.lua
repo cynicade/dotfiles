@@ -1,21 +1,13 @@
---                          _______           _
---                         (  ____ \|\     /|( (    /|
---                         | (    \/( \   / )|  \  ( |
---                         | |       \ (_) / |   \ | |
---                         | |        \   /  | (\ \) |
---                         | |         ) (   | | \   |
---                         | (____/\   | |   | )  \  |
---                         (_______/   \_/   |/    )_)
---
-
 ------------------------------------------------------------------------------
 -- General
 ------------------------------------------------------------------------------
 local set = vim.opt
 local cmd = vim.cmd
+local api = vim.api
 
 set.backup = false
 set.clipboard = "unnamedplus"
+set.cmdheight = 0
 set.completeopt = "menu,menuone,noselect"
 set.cursorline = true
 set.errorbells = false
@@ -47,28 +39,15 @@ set.undodir = vim.fn.stdpath('config') .. '/undodir'
 set.undofile = true
 set.updatetime = 300
 set.wrap = false
+set.exrc = true
+set.secure = true
 
-cmd [[
-    au! BufWritePost $MYVIMRC source %
+-- 2 spaces for selected filetypes
+cmd([[ autocmd FileType json setlocal shiftwidth=2 tabstop=2 ]])
 
-    " filetype autocmd settings
-    autocmd FileType python setlocal shiftwidth=4 softtabstop=4
-    autocmd FileType python map <leader>br :up<CR>:execute 'silent !tmux select-pane -t {last} && tmux send-keys -R Up Enter && tmux select-pane -t {last}'<CR><CR>
-    autocmd FileType sh map <leader>br :up<CR>:execute 'silent !tmux select-pane -t {last} && tmux send-keys -R Up Enter && tmux select-pane -t {last}'<CR><CR>
-    autocmd FileType lua setlocal shiftwidth=2 softtabstop=2
-    autocmd FileType cpp setlocal shiftwidth=2 softtabstop=2
-    " autocmd FileType cpp map <leader>br :execute 'silent !tmux select-pane -t {last} && tmux send-keys -R Up Enter'<CR>
-    autocmd FileType cpp map <leader>br :execute 'silent !tmux send-keys -t {last} "rm main && make main && ./main" Enter'<CR>
-    autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-    autocmd FileType javascriptreact setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-    autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-    autocmd FileType typescriptreact setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-    autocmd FileType css setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-    autocmd FileType haskell map <buffer> <leader>br :w<CR>:terminal ghci<CR>
-    autocmd FileType nusmv setlocal shiftwidth=2 softtabstop=2
-    autocmd FileType go setlocal shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
-    autocmd FileType go map <leader>br :execute 'silent !tmux send-keys -t {last} "go run main.go" Enter'<CR>
-]]
+-- set cmdheight to 1 when recording a macro
+api.nvim_create_autocmd("RecordingEnter", { command = "set cmdheight=1" })
+api.nvim_create_autocmd("RecordingLeave", { command = "set cmdheight=0" })
 ------------------------------------------------------------------------------
 -- Keymaps
 ------------------------------------------------------------------------------

@@ -6,31 +6,34 @@
 # fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.yarn/bin:$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.dotnet/tools:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export GOPATH="/home/cyn/Dev/go/packages"
+export GOPATH="$HOME/.go"
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$HOME/Dev/systemgo
+export PATH=/Users/cynicade/.meteor:$PATH
+export PATH="$HOME/.tmuxifier/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
+# export PATH=$PATH:$HOME/Dev/systemgo
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/cyn/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # Fix text deletion bug?
 # export TERM="xterm-256color"
 
 # Set workspace 2 as the dev workspace for i3
-export I3_DEV_WS="2"
+# export I3_DEV_WS="2"
 
 # Set most as default pager
-export PAGER="most"
+# export PAGER="most"
 
 # Set clang as default C/C++ compiler
 export CC="clang"
 export CXX="clang++"
 
 # Fix glyphs in tmux?
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+# export LC_ALL=en_US.UTF-8
+# export LANG=en_US.UTF-8
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -129,13 +132,6 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source $HOME/.zsh_aliases
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-eval "$(fasd --init auto)"
-eval "$(thefuck --alias)"
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -147,3 +143,16 @@ eval "$(starship init zsh)"
 # ssh-add ~/.ssh/server
 # [ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(tmuxifier init -)"
+# fix for fzf and vim mode incompatibility
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+# add script dir to path
+export PATH=$PATH:$HOME/Work/scripts

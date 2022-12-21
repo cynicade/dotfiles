@@ -1,35 +1,39 @@
 require('catppuccin').setup({
+  compile = {
+    enabled = true,
+    path = vim.fn.stdpath "cache" .. "/catppuccin"
+  },
   transparent_background = false,
   term_colors = true,
   styles = {
-    comments = "italic",
-    conditionals = "NONE",
-    loops = "NONE",
-    functions = "bold",
-    keywords = "NONE",
-    strings = "NONE",
-    variables = "bold",
-    numbers = "NONE",
-    booleans = "NONE",
-    properties = "NONE",
-    types = "italic",
-    operators = "NONE",
+    comments = { "italic" },
+    conditionals = {},
+    loops = {},
+    functions = { "bold" },
+    keywords = {},
+    strings = {},
+    variables = { "bold" },
+    numbers = {},
+    booleans = {},
+    properties = {},
+    types = {},
+    operators = {},
   },
   integrations = {
     treesitter = true,
     native_lsp = {
-      enabled = false,
+      enabled = true,
       virtual_text = {
-        errors = "italic",
-        hints = "italic",
-        warnings = "italic",
-        information = "italic",
+        errors = {"italic"},
+        hints = { "italic" },
+        warnings = { "italic" },
+        information = { "italic" },
       },
       underlines = {
-        errors = "underline",
-        hints = "underline",
-        warnings = "underline",
-        information = "underline",
+        errors = { "underline" },
+        hints = { "underline" },
+        warnings = { "underline" },
+        information = { "underline" },
       },
     },
     coc_nvim = false,
@@ -38,10 +42,13 @@ require('catppuccin').setup({
     lsp_saga = false,
     gitgutter = true,
     gitsigns = true,
-    telescope = true,
+    telescope = {
+      enabled = true,
+      transparent_panel = false,
+    },
     nvimtree = {
       enabled = true,
-      show_root = false,
+      show_root = true,
       transparent_panel = false,
     },
     neotree = {
@@ -70,5 +77,5 @@ require('catppuccin').setup({
   }
 })
 
-vim.g.catppucin_flavour = "mocha"
+vim.g.catppuccin_flavour = "mocha"
 vim.cmd [[colorscheme catppuccin]]

@@ -9,3 +9,11 @@ map { 'n', '<leader>3', '<cmd>lua require("harpoon.ui").nav_file(3)<CR>' }
 map { 'n', '<leader>4', '<cmd>lua require("harpoon.ui").nav_file(4)<CR>' }
 map { 'n', '<leader>5', '<cmd>lua require("harpoon.ui").nav_file(5)<CR>' }
 map { 'n', '<leader>6', '<cmd>lua require("harpoon.ui").nav_file(6)<CR>' }
+map { 'n', '<leader>7', '<cmd>lua require("harpoon.ui").nav_file(7)<CR>' }
+map { 'n', '<leader>8', '<cmd>lua require("harpoon.ui").nav_file(8)<CR>' }
+
+require("harpoon").setup({
+    global_settings = {
+        mark_branch = true,
+    }
+})

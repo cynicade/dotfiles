@@ -13,7 +13,10 @@ map { 'n', '<C-l>', ':wincmd l<CR>' }
 map { 'n', '<C-w>', ':bd<CR>' }
 
 -- jk escape
-map { 'i', 'jk', '<Esc>' }
+map { 'i', 'jk', '<Esc>l' }
+
+-- escape in insert mode doesn't move cursor back
+map { 'i', '<Esc>', '<Esc>l' }
 
 -- tab scroll through buffers
 -- map {'n', '<TAB>', ':bnext<CR>'}
@@ -43,6 +46,14 @@ map { 'n', 'n', 'nzzzv' }
 map { 'n', 'N', 'Nzzzv' }
 map { 'n', 'J', 'mzJ`z' }
 
+-- insert empty line and stay in normal mode
+map { 'n', 'zj', 'o<Esc>' }
+map { 'n', 'zk', 'O<Esc>' }
+
+-- center cursor after C-u/d
+map { 'n', '<C-u>', '<C-u>zz' }
+map { 'n', '<C-d>', '<C-d>zz' }
+
 -- easy insertion of a trailing ; or , from insert mode
 map { 'i', ';;', '<Esc>A;<Esc>' }
 map { 'i', ',,', '<Esc>A,<Esc>' }
@@ -53,3 +64,6 @@ map { 'n', '<leader>vr', ':source ~/.config/nvim/init.lua<CR>' }
 
 -- nvimtree
 map { 'n', '<leader>e', ':NvimTreeToggle<CR>' }
+
+-- spread comma separated values into new lines
+map { 'n', '<leader>,', 'f,a<CR><Esc>'}

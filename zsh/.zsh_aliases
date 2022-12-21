@@ -1,9 +1,11 @@
+# Aliases
 alias vim="nvim"
 alias svim="sudo -e"
 alias ez="nvim ~/.zshrc"
 alias eza="nvim ~/.zsh_aliases"
 alias Z="source ~/.zshrc"
-alias ei="nvim ~/.config/i3/config"
+alias ei="nvim ~/.skhdrc"
+alias ey="nvim ~/.yabairc"
 alias ep="nvim ~/.config/polybar/config.ini"
 alias ev="nvim ~/.config/nvim/init.lua"
 alias et="nvim ~/.tmux.conf"
@@ -20,13 +22,28 @@ alias servftp="sftp -P 22 cyn@65.21.145.72"
 # alias ls="logo-ls -D"
 # alias la="logo-ls -AD"
 # alias ll="logo-ls -alD"
-alias ls="ls --color --group-directories-first"
-alias la="ls -a --color --group-directories-first"
-alias ll="ls -al --color --group-directories-first"
-cds() {
-    cd `s $1`
-}
-alias muxi="tmuxinator"
+alias ls="ls --color"
+alias la="ls -a --color"
+alias ll="ls -al --color"
+alias mux="tmuxifier"
+alias galactus="npm"
+
+# work
+alias logs="npx pm2 logs adapters"
+alias lflush="npx pm2 flush"
+
+# Functions
 pp() {
-    tmuxinator start `ls $HOME/.config/tmuxinator | sed -e 's/\.yml//g' | fzf`
+    # $HOME/Personal/scripts/tmux-sessionizer.sh
+    mux s $(mux ls | fzf)
 }
+cdz() {
+    cd $(find * -maxdepth 1 -mindepth 1 -type d | fzf)
+}
+cds() {
+    cd && cd $(find * -maxdepth 1 -mindepth 1 -type d | fzf)
+}
+fh() {
+    print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
+}
+
